@@ -1,0 +1,6 @@
+entity: Country
+items:
+  country1:
+    name: "Argentina"
+    code2: "ARG"
+    code3: "ARG"

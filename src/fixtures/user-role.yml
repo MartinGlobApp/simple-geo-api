@@ -1,0 +1,8 @@
+entity: UserRole
+items:
+  userrole1:
+    userId: "@user1"
+    roleId: "@role1"
+  userrole2:
+    userId: "@user2"
+    roleId: "@role2"

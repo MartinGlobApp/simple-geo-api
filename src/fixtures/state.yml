@@ -1,0 +1,5 @@
+entity: State
+items:
+  state1:
+    name: "Salta"
+    countryId: "@country1"

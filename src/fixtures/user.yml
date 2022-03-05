@@ -1,0 +1,20 @@
+entity: User
+processor: ../proccesor/UserProccesor
+items:
+  user1:
+    username: "admin"
+    password: "123"
+    firstName: "Martin"
+    lastName: "Valdez"
+    email: "martinvaldez89@gmail.com"
+    companyId: null
+    active: true
+  user2:
+    username: "abraplata"
+    password: "123"
+    firstName: "Gonzalo"
+    lastName: "Montebelli"
+    companyId: null
+    email: "gmonte@abraplata.com"
+    active: true
+

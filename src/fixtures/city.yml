@@ -1,0 +1,5 @@
+entity: City
+items:
+  city1:
+    name: "Salta Capital"
+    stateId: "@state1"

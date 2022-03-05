@@ -1,1 +1,3 @@
-# simple-geo-api
+# README #
+
+Simple Geo - API
