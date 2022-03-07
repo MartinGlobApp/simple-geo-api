@@ -19,23 +19,9 @@ export class UserRole extends BaseModel {
   @Column("int")
   userId: number
 
-  @Field(() => User, { nullable: true })
-  @ManyToOne(() => User, (user) => user.roleUsers, {
-    lazy: true,
-  })
-  @JoinColumn([{ name: "user_id", referencedColumnName: "id" }])
-  user?: Promise<User>
-
   @Field(() => String, { nullable: true })
   @Column("int")
   roleId: number
-
-  @Field(() => Role, { nullable: true })
-  @ManyToOne(() => Role, (role) => role.roleUsers, {
-    lazy: true,
-  })
-  @JoinColumn([{ name: "role_id", referencedColumnName: "id" }])
-  role?: Promise<Role>
 
   @Field(() => Date, { nullable: true })
   @CreateDateColumn({ type: "timestamp" })
@@ -48,4 +34,14 @@ export class UserRole extends BaseModel {
   @Field(() => Date, { nullable: true })
   @DeleteDateColumn({ type: "timestamp", default: null })
   deletedAt?: Date
+
+  @Field(() => User, { nullable: true })
+  @ManyToOne(() => User, (user) => user.roleUsers, {lazy: true,})
+  @JoinColumn([{ name: "user_id", referencedColumnName: "id" }])
+  user?: Promise<User>
+
+  @Field(() => Role, { nullable: true })
+  @ManyToOne(() => Role, (role) => role.roleUsers, {lazy: true,})
+  @JoinColumn([{ name: "role_id", referencedColumnName: "id" }])
+  role?: Promise<Role>
 }

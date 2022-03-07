@@ -4,6 +4,7 @@ import { ObjectType, Field, ID, Int } from '@nestjs/graphql';
 import { BaseModel } from "src/core/lib"
 import { City } from '../../../data/city/entities/city.entity';
 import { User } from "src/graphql/sys/user/entities/user.entity";
+import { Project } from '../../project/entities/project.entity';
 
 @ObjectType()
 @Entity({
@@ -44,4 +45,8 @@ export class Company extends BaseModel {
   @Field(() => [User], { nullable: true })
   @OneToMany(() => User, (user) => user.company, { lazy: true })
   users?: Promise<User[]>
+
+  @Field(() => [Project], { nullable: true })
+  @OneToMany(() => Project, (project) => project.company, { lazy: true })
+  projects?: Promise<Project[]>
 }

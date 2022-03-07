@@ -9,6 +9,8 @@ import { Project } from "./entities/project.entity"
 
 import { ProjectInputDto } from "./dto/project.dto"
 import { ProjectListPageInfoResponse } from "./dto/project.type"
+import { CurrentUser } from "src/graphql/auth/decorator/user.decorator"
+import { User } from "src/graphql/sys/user/entities/user.entity"
 
 @Resolver(() => Project)
 export class ProjectResolver {
@@ -48,5 +50,13 @@ export class ProjectResolver {
   @UseGuards(GqlAuthGuard)
   async removeProject(@Args("id", { type: () => Int }) id: number) {
     return await this.engineService.remove(id)
+  }
+
+  //CUSTOMS
+
+  @Query(() => [Project], { name: "projectFindMe" })
+  @UseGuards(GqlAuthGuard)
+  async projectFindMe(@CurrentUser() user: User,) {
+    return await this.engineService.projectFindMe(user)
   }
 }

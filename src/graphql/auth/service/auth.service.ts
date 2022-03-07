@@ -28,18 +28,19 @@ export class AuthService {
       username
     } = user
 
-    const payload = { username: username, sub: validateUser.id }
+    const payload = { username: username, sub: validateUser.id, companyId: validateUser.companyId }
 
     const token = await this.jwtService.sign(payload)
+    const useRroles = await validateUser.roleUsers;
 
     return {
-      accessToken: token
+      accessToken: token,
+      userRoles: useRroles
     }
   }
   
   async validateUserByRol(username: string, pass: string, role: RoleEnum): Promise<User> {
     const user = await this.userService.findOneByUserName(username)
-
 
     if (!user) {
       return null

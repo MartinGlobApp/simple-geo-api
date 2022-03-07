@@ -3,12 +3,12 @@ import { ObjectType, Field, ID, Int, Float } from "@nestjs/graphql"
 
 import { BaseModel } from "src/core/lib"
 import { City } from "src/graphql/data/city/entities/city.entity"
-import { Double } from "mongodb"
 import { Hole } from '../../hole/entities/hole.entity';
 import { Value } from "src/graphql/data/value/entities/value.entity"
 import { ValueType } from "src/graphql/data/value-type/entities/value-type.entity"
 import { LogType } from '../../../data/log-type/entities/log-type.entity';
 import { UserProjectAccess } from '../../../sys/user-project-access/entities/user-project-access.entity';
+import { Company } from '../../company/entities/company.entity';
 
 @ObjectType()
 @Entity({
@@ -22,6 +22,10 @@ export class Project extends BaseModel {
   @Field(() => String, { nullable: true })
   @Column({nullable: false})
   name: string
+
+  @Field(() => Int, { nullable: true })
+  @Column("int")
+  companyId: number
 
   @Field(() => Int, { nullable: true })
   @Column("int")
@@ -48,6 +52,11 @@ export class Project extends BaseModel {
   deletedAt?: Date
 
   //FOREIGN KEYS
+
+  @Field(() => Company, { nullable: true })
+  @ManyToOne(() => Company, (company) => company.projects, { lazy: true, })
+  @JoinColumn([{ name: "company_id", referencedColumnName: "id" }])
+  company?: Promise<Company>  
 
   @Field(() => City, { nullable: true })
   @ManyToOne(() => City, (city) => city.projects, { lazy: true, })

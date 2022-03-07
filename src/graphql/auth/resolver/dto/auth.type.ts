@@ -1,4 +1,5 @@
-import { Field, ObjectType } from "@nestjs/graphql"
+import { Field, ObjectType, Int } from '@nestjs/graphql';
+import { UserRole } from '../../../sys/user-role/entities/user-role.entity';
 
 @ObjectType()
 export class LoginSuccessResponse {
@@ -9,6 +10,6 @@ export class LoginSuccessResponse {
   @Field(() => Boolean, { nullable: true, defaultValue: false })
   fromSocial?: boolean
 
-  @Field(() => [String], { nullable: true })
-  roles?: string[]
+  @Field(() => [UserRole], { nullable: true })
+  userRoles?: UserRole[]
 }

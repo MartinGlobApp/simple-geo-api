@@ -1,6 +1,5 @@
 import { InputType, Field } from "@nestjs/graphql"
 import { IsNotEmpty, IsOptional } from "class-validator"
-import { LoginProviderEnum } from "src/core/enums/login-provider.enum";
 
 @InputType()
 export class UserInputDto {
