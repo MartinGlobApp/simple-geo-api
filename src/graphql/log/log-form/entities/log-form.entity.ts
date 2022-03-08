@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, JoinColumn } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, JoinColumn, Generated } from "typeorm"
 import { ObjectType, Field, ID, Float } from "@nestjs/graphql"
 
 import { BaseModel } from "src/core/lib"
@@ -12,8 +12,9 @@ import { Value } from "src/graphql/data/value/entities/value.entity"
 })
 export class LogForm extends BaseModel {
   @Field(() => ID, { nullable: true })
-  @PrimaryGeneratedColumn()
-  id: number
+  @PrimaryGeneratedColumn("uuid")
+  @Generated("uuid")
+  id: string
 
   @Field(() => Float, { nullable: false })
   @Column({nullable: false})
@@ -23,73 +24,73 @@ export class LogForm extends BaseModel {
   @Column({nullable: false})
   to: number
 
-  @Field(() => Number, { nullable: true })
-  @Column("int", {nullable: false})
-  holeId: number
+  @Field(() => String, { nullable: true })
+  @Column({nullable: false})
+  holeId: string
+
+  @Field(() => String, { nullable: true })
+  @Column( {nullable: false})
+  userId: string
+
+  @Field(() => String, { nullable: true })
+  @Column({nullable: true})
+  valueOrder1Id: string
+
+  @Field(() => String, { nullable: true })
+  @Column({nullable: true})
+  valueOrder2Id: string
+
+  @Field(() => String, { nullable: true })
+  @Column({nullable: true})
+  valueOrder3Id: string
+
+  @Field(() => String, { nullable: true })
+  @Column( {nullable: true})
+  valueOrder4Id: string
+
+  @Field(() => String, { nullable: true })
+  @Column({nullable: true})
+  valueOrder5Id: string
+
+  @Field(() => String, { nullable: true })
+  @Column({nullable: true})
+  valueOrder6Id: string
+
+  @Field(() => String, { nullable: true })
+  @Column({nullable: true})
+  valueOrder7Id: string
+
+  @Field(() => String, { nullable: true })
+  @Column({nullable: true})
+  valueOrder8Id: string
+
+  @Field(() => String, { nullable: true })
+  @Column({nullable: true})
+  valueOrder9Id: string
+
+  @Field(() => String, { nullable: true })
+  @Column( {nullable: true})
+  valueOrder10Id: string
+
+  @Field(() => String, { nullable: true })
+  @Column({nullable: true})
+  valueOrder11Id: string
+
+  @Field(() => String, { nullable: true })
+  @Column({nullable: true})
+  valueOrder12Id: string
+
+  @Field(() => String, { nullable: true })
+  @Column({nullable: true})
+  valueOrder13Id: string
 
   @Field(() => Number, { nullable: true })
-  @Column("int", {nullable: false})
-  userId: number
+  @Column({nullable: false})
+  valueOrder14Id: string
 
   @Field(() => Number, { nullable: true })
-  @Column("int", {nullable: true})
-  valueOrder1Id: number
-
-  @Field(() => Number, { nullable: true })
-  @Column("int", {nullable: true})
-  valueOrder2Id: number
-
-  @Field(() => Number, { nullable: true })
-  @Column("int", {nullable: true})
-  valueOrder3Id: number
-
-  @Field(() => Number, { nullable: true })
-  @Column("int", {nullable: true})
-  valueOrder4Id: number
-
-  @Field(() => Number, { nullable: true })
-  @Column("int", {nullable: true})
-  valueOrder5Id: number
-
-  @Field(() => Number, { nullable: true })
-  @Column("int", {nullable: true})
-  valueOrder6Id: number
-
-  @Field(() => Number, { nullable: true })
-  @Column("int", {nullable: true})
-  valueOrder7Id: number
-
-  @Field(() => Number, { nullable: true })
-  @Column("int", {nullable: true})
-  valueOrder8Id: number
-
-  @Field(() => Number, { nullable: true })
-  @Column("int", {nullable: true})
-  valueOrder9Id: number
-
-  @Field(() => Number, { nullable: true })
-  @Column("int", {nullable: true})
-  valueOrder10Id: number
-
-  @Field(() => Number, { nullable: true })
-  @Column("int", {nullable: true})
-  valueOrder11Id: number
-
-  @Field(() => Number, { nullable: true })
-  @Column("int", {nullable: true})
-  valueOrder12Id: number
-
-  @Field(() => Number, { nullable: true })
-  @Column("int", {nullable: true})
-  valueOrder13Id: number
-
-  @Field(() => Number, { nullable: true })
-  @Column("int", {nullable: false})
-  valueOrder14Id: number
-
-  @Field(() => Number, { nullable: true })
-  @Column("int", {nullable: true})
-  valueOrder15Id: number
+  @Column({nullable: true})
+  valueOrder15Id: string
 
   @Field(() => String, { nullable: true })
   @Column({ nullable: true })

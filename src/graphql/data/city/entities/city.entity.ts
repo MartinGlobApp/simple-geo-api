@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, JoinColumn, OneToMany } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, JoinColumn, OneToMany, Generated } from "typeorm"
 import { ObjectType, Field, ID } from "@nestjs/graphql"
 
 import { BaseModel } from "src/core/lib"
@@ -12,16 +12,17 @@ import { Project } from '../../../bus/project/entities/project.entity';
 })
 export class City extends BaseModel {
   @Field(() => ID, { nullable: true })
-  @PrimaryGeneratedColumn()
-  id: number
+  @PrimaryGeneratedColumn("uuid")
+  @Generated("uuid")
+  id: string
 
   @Field(() => String, { nullable: true })
   @Column()
   name: string
 
   @Field(() => String, { nullable: true })
-  @Column("int")
-  stateId: number
+  @Column()
+  stateId: string
 
   @Field(() => Date, { nullable: true })
   @CreateDateColumn({ type: "timestamp" })

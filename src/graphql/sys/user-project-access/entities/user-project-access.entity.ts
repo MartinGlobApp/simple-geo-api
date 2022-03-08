@@ -14,13 +14,13 @@ export class UserProjectAccess extends BaseModel {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Field(() => Int, { nullable: true })
+  @Field(() => String, { nullable: true })
   @Column("int")
-  userId: number
+  userId: string
 
-  @Field(() => Int, { nullable: true })
-  @Column("int")
-  projectId: number
+  @Field(() => String, { nullable: true })
+  @Column()
+  projectId: string
 
   @Field(() => Date, { nullable: true })
   @CreateDateColumn({ type: "timestamp" })

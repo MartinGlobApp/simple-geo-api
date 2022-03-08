@@ -29,7 +29,7 @@ export class FileResolver {
   @Query(() => File, { name: "file" })
   @UseGuards(GqlAuthGuard)
   async findOne(@Args("id", { type: () => Int }) id: number) {
-    return await this.engineService.findOne(id)
+    return await this.engineService.findOne(String(id))
   }
 
   @Query(() => UIFileResponse, { name: "fileBase64" })

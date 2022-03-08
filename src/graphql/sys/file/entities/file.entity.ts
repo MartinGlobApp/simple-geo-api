@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, OneToMany } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, OneToMany, Generated } from "typeorm"
 import { ObjectType, Field, ID } from "@nestjs/graphql"
 import { Expose } from "class-transformer"
 import { BaseModel } from "src/core/lib"

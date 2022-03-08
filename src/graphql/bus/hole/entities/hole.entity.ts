@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, JoinColumn, ManyToOne, OneToMany } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, JoinColumn, ManyToOne, OneToMany, Generated } from "typeorm"
 import { ObjectType, Field, ID, Int } from "@nestjs/graphql"
 
 import { BaseModel } from "src/core/lib"
@@ -12,16 +12,17 @@ import { LogForm } from '../../../log/log-form/entities/log-form.entity';
 })
 export class Hole extends BaseModel {
   @Field(() => ID, { nullable: true })
-  @PrimaryGeneratedColumn()
-  id: number
+  @PrimaryGeneratedColumn("uuid")
+  @Generated("uuid")
+  id: string
 
-  @Field(() => Int, { nullable: true })
-  @Column("int")
-  projectId: number
+  @Field(() => String, { nullable: true })
+  @Column()
+  projectId: string
 
-  @Field(() => Int, { nullable: true })
-  @Column("int")
-  value_prospect_id: number
+  @Field(() => String, { nullable: true })
+  @Column()
+  value_prospect_id: string
 
   @Field(() => String, { nullable: true })
   @Column()

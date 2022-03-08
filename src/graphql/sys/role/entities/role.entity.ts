@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, OneToMany } from "typeorm"
-import { ObjectType, Field, ID } from "@nestjs/graphql"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, OneToMany, Generated } from "typeorm"
+import { ObjectType, Field, ID, Int } from '@nestjs/graphql';
 
 import { BaseModel } from "src/core/lib"
 import { UserRole } from "../../user-role/entities/user-role.entity"

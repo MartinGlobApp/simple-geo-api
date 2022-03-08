@@ -51,11 +51,12 @@ export abstract class BaseService<T extends BaseModel> {
     return queryBuilder.getMany()
   }
 
-  async findOne(id: number): Promise<T> {
+  async findOne(id: string): Promise<T> {
     const base = await this.engineRepo.findOne(String(id))
 
     return base
   }
+ 
 
   async create(attrs: any, connect: QueryRunner = null): Promise<T> {
 
@@ -100,7 +101,7 @@ export abstract class BaseService<T extends BaseModel> {
         await queryRunner.startTransaction()
       }
 
-      const entity = await this.findOne(id)
+      const entity = await this.findOne(String(id))
 
       if (!entity) throw new InternalServerErrorException("No se encontró el registro a actualizar.")
 
@@ -139,7 +140,7 @@ export abstract class BaseService<T extends BaseModel> {
         await queryRunner.startTransaction()
       }
 
-      const entity = await this.findOne(id)
+      const entity = await this.findOne(String(id))
 
       const payload = Object.assign(new this.modelClass(), entity)
 

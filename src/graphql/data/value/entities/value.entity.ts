@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, JoinColumn, OneToMany } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, JoinColumn, OneToMany, Generated } from "typeorm"
 import { ObjectType, Field, ID, Int } from "@nestjs/graphql"
 
 import { BaseModel } from "src/core/lib"
@@ -7,6 +7,7 @@ import { ValueType } from '../../value-type/entities/value-type.entity';
 import { Hole } from "src/graphql/bus/hole/entities/hole.entity";
 import { Project } from '../../../bus/project/entities/project.entity';
 import { LogForm } from '../../../log/log-form/entities/log-form.entity';
+import { Strategy } from 'passport-jwt';
 
 @ObjectType()
 @Entity({
@@ -14,16 +15,17 @@ import { LogForm } from '../../../log/log-form/entities/log-form.entity';
 })
 export class Value extends BaseModel {
   @Field(() => ID, { nullable: true })
-  @PrimaryGeneratedColumn()
-  id: number
+  @PrimaryGeneratedColumn("uuid")
+  @Generated("uuid")
+  id: string
 
-  @Field(() => Int, { nullable: true })
-  @Column("int")
-  projectId: number
+  @Field(() => String, { nullable: true })
+  @Column()
+  projectId: string
 
-  @Field(() => Int, { nullable: true })
+  @Field(() => String, { nullable: true })
   @Column("int")
-  valueTypeId: number
+  valueTypeId: string
 
   @Field(() => String, { nullable: true })
   @Column()

@@ -28,7 +28,7 @@ export class ValueTypeResolver {
 
   @Query(() => ValueType, { name: "valueType" })
   @UseGuards(GqlAuthGuard)
-  async findOne(@Args("id", { type: () => Int }) id: number) {
+  async findOne(@Args("id", { type: () => String }) id: string) {
     return await this.engineService.findOne(id)
   }
 

@@ -29,7 +29,7 @@ export class UserRoleResolver {
   @Query(() => UserRole, { name: "userRole" })
   @UseGuards(GqlAuthGuard)
   async findOne(@Args("id", { type: () => Int }) id: number) {
-    return await this.engineService.findOne(id)
+    return await this.engineService.findOne(String(id))
   }
 
   @Mutation(() => UserRole)

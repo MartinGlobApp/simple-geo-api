@@ -14,7 +14,7 @@ items:
     password: "123"
     firstName: "Gonzalo"
     lastName: "Montebelli"
-    companyId: null
+    companyId: "@company1"
     email: "gmonte@abraplata.com"
     active: true
 

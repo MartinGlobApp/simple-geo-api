@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, Index, OneToMany, JoinColumn, ManyToOne } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, Index, OneToMany, JoinColumn, ManyToOne, Generated } from "typeorm"
 import { ObjectType, Field, ID, Int } from "@nestjs/graphql"
 
 import { BaseModel } from "src/core/lib"
@@ -15,12 +15,13 @@ import { UserProjectAccess } from '../../user-project-access/entities/user-proje
 export class User extends BaseModel {
 
   @Field(() => ID, { nullable: true })
-  @PrimaryGeneratedColumn()
-  id: number
+  @PrimaryGeneratedColumn("uuid")
+  @Generated("uuid")
+  id: string
 
-  @Field(() => Int, { nullable: true })
-  @Column("int", {nullable: true})
-  companyId: number
+  @Field(() => String, { nullable: true })
+  @Column({nullable: true})
+  companyId: string
 
   @Field(() => Boolean, { nullable: true })
   @Column({ type: "boolean", default: false })

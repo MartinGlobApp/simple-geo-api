@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, JoinColumn, OneToMany } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, JoinColumn, OneToMany, Generated } from "typeorm"
 import { ObjectType, Field, ID, Int } from "@nestjs/graphql"
 
 import { BaseModel } from "src/core/lib"
@@ -13,12 +13,13 @@ import { LogFormItem } from "../../log-form-item/entities/log-form-item.entity";
 })
 export class ValueType extends BaseModel {
   @Field(() => ID, { nullable: true })
-  @PrimaryGeneratedColumn()
-  id: number
+  @PrimaryGeneratedColumn("uuid")
+  @Generated("uuid")
+  id: string
 
-  @Field(() => Int, { nullable: true })
-  @Column("int")
-  projectId: number
+  @Field(() => String, { nullable: true })
+  @Column()
+  projectId: string
 
   @Field(() => String, { nullable: true })
   @Column()

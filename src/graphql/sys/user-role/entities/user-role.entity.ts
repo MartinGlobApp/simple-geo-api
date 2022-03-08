@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, JoinColumn } from "typeorm"
-import { ObjectType, Field, ID } from "@nestjs/graphql"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, JoinColumn, Generated } from "typeorm"
+import { ObjectType, Field, ID, Int } from '@nestjs/graphql';
 
 import { BaseModel } from "src/core/lib"
 
@@ -16,10 +16,10 @@ export class UserRole extends BaseModel {
   id: number
 
   @Field(() => String, { nullable: true })
-  @Column("int")
-  userId: number
+  @Column()
+  userId: string
 
-  @Field(() => String, { nullable: true })
+  @Field(() => Int, { nullable: true })
   @Column("int")
   roleId: number
 
