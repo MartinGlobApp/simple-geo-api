@@ -56,6 +56,12 @@ export abstract class BaseService<T extends BaseModel> {
 
     return base
   }
+
+  async findOneByNumberId(id: number): Promise<T> {
+    const base = await this.engineRepo.findOne(String(id))
+
+    return base
+  }
  
 
   async create(attrs: any, connect: QueryRunner = null): Promise<T> {
@@ -91,7 +97,7 @@ export abstract class BaseService<T extends BaseModel> {
     }
   }
 
-  async update(id: number, attrs: any, connect: QueryRunner = null): Promise<T | T[]> {
+  async update(id: any, attrs: any, connect: QueryRunner = null): Promise<T | T[]> {
 
     const queryRunner = connect != null ? connect : getConnection().createQueryRunner()
 

@@ -3,10 +3,4 @@ items:
   role1:
     name: "Admin"
   role2:
-    name: "CompanyAdmin"
-  role3:
-    name: "ProjectAdmin"
-  role4:
-    name: "Geologist"
-  role5:
-    name: "Technical"
+    name: "User"

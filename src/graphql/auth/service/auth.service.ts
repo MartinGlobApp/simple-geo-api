@@ -34,6 +34,7 @@ export class AuthService {
     const useRroles = await validateUser.roleUsers;
 
     return {
+      userId: validateUser.id,
       accessToken: token,
       userRoles: useRroles
     }

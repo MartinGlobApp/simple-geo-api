@@ -40,7 +40,7 @@ export class CompanyResolver {
 
   @Mutation(() => Company)
   @UseGuards(GqlAuthGuard)
-  async updateCompany(@Args("id", { type: () => Int }) id: number, @Args("companyInputDto") companyInputDto: CompanyInputDto) {
+  async updateCompany(@Args("id", { type: () => String }) id: string, @Args("companyInputDto") companyInputDto: CompanyInputDto) {
     return await this.engineService.update(id, companyInputDto)
   }
 

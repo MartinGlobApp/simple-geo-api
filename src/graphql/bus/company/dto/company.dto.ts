@@ -3,7 +3,11 @@ import { IsNotEmpty } from "class-validator"
 
 @InputType()
 export class CompanyInputDto {
+
   @Field(() => String)
   @IsNotEmpty()
-  name: string
+  data: string
+
+  @Field(() => Number)
+  dataSizeInBytes: number
 }

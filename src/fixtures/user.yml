@@ -10,7 +10,7 @@ items:
     companyId: null
     active: true
   user2:
-    username: "abraplata"
+    username: "abrasilver"
     password: "123"
     firstName: "Gonzalo"
     lastName: "Montebelli"

@@ -4,9 +4,7 @@ import { ObjectType, Field, ID, Int } from "@nestjs/graphql"
 import { BaseModel } from "src/core/lib"
 import { UserRole } from "../../user-role/entities/user-role.entity"
 import { Expose } from "class-transformer"
-import { LogForm } from '../../../log/log-form/entities/log-form.entity';
 import { Company } from "src/graphql/bus/company/entities/company.entity"
-import { UserProjectAccess } from '../../user-project-access/entities/user-project-access.entity';
 
 @ObjectType()
 @Entity({
@@ -71,15 +69,6 @@ export class User extends BaseModel {
   }
 
   //FOREIGN KEYS
-
-  @Field(() => [LogForm], { nullable: true })
-  @OneToMany(() => LogForm, (logForm) => logForm.user, { lazy: true })
-  logForms?: Promise<LogForm[]>
-
-  @Field(() => [UserProjectAccess], { nullable: true })
-  @OneToMany(() => UserProjectAccess, (userprojectAccess) => userprojectAccess.user, { lazy: true })
-  userprojectAccess?: Promise<UserProjectAccess[]>
-
   @Field(() => Company, { nullable: true })
   @ManyToOne(() => Company, (company) => company.users, { lazy: true })
   @JoinColumn([{ name: "company_id", referencedColumnName: "id" }])
